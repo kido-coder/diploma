@@ -1,0 +1,90 @@
+@import url('https://fonts.cdnfonts.com/css/scada');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Scada', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
+  color: #2A363B;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+table {
+  width: 96%;
+  margin-left: 2%;
+}
+
+th {
+  height: 3rem;
+  font-size: 20px;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+
+td {
+  text-align: center;
+  border-bottom: 1px solid black;
+  height: 2rem;
+  font-size: 18px;
+}
+
+p {
+  margin:0
+}
+
+#main_window {
+  display: flex;
+  flex-direction: row;
+  height: 90.5%;
+  width: 100%;
+}
+
+.table-container {
+  width: 100%;
+  margin: 5% 0 0 20%;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items:end;
+}
+
+#pls {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+#plslogin:hover {
+  color:aquamarine;
+  cursor: pointer;
+}
+
+.link:hover{
+  cursor: pointer;
+  background-color: #547980;
+}
+#logo:hover {
+  cursor: pointer;
+}
+
+.inp {
+  background: white;
+  border-radius: 5px;
+  border: 1px rgba(188, 140, 160, 0.75) solid;
+  height: 2rem;
+  width: 60%;
+  font: 14px 'Scada', sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  margin: 0.5rem;
+}
+
+.inp.full {
+  width: 100%;
+}

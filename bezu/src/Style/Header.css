@@ -1,0 +1,39 @@
+#header {
+    background-color: #547980;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 5%;
+    width: 80%;
+    margin: 0 0 0 20%;
+    padding: 1rem;
+    position: fixed;
+}
+
+#header p {
+    font-size: 16px;
+    margin: 0;
+    color: whitesmoke;
+}
+#header a {
+    font-size: 16px;
+    margin: 0;
+    text-decoration: none;
+    color: whitesmoke;
+}
+#logo {
+    height: 3rem;
+}
+
+#info {
+    display: flex;
+    padding: 1rem;
+}
+
+#headerNode {
+    padding-right: 5rem;
+}
+
+#headerUser {
+    padding-right: 3rem;
+}

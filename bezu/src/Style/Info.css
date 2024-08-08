@@ -1,0 +1,54 @@
+.center {
+    text-align: center;
+}
+
+.node {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.state {
+    display: flex;
+    height: 3rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    border-radius: 10px;
+}
+
+.tcv2 {
+    height: 100%;
+    background-image: url('../Images/tcv2off.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: rgb(34, 34, 34, .7);
+    margin-left: 15%;
+}
+
+.tcv2.on {
+    background-image: url('../Images/tcv2.png');
+    color: rgb(34, 34, 34, .9);
+}
+
+.tcv1 {
+    height: 100%;
+    background-image: url('../Images/tcv1off.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: rgb(34, 34, 34, .7);
+    margin-left: 15%;
+}
+
+.tcv1.on {
+    background-image: url('../Images/tcv1.png');
+    color: rgb(34, 34, 34, .9);
+}
+.t11{
+    padding: 6rem 0 0 2rem;
+}
+.t21{
+    padding: 5rem 0 0 12rem;
+}
+
+abbr {
+    text-decoration: none;
+}
