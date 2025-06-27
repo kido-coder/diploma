@@ -8,32 +8,32 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 
 export const SidebarData = [
     {
-        title: "Нүүр хуудас",
+        title: "Home",
         icon: <HomeIcon />,
         link: "/home"
     }, 
     {
-        title: "Зангилаа",
+        title: "Node",
         icon: <DeveloperBoardIcon />,
         link: "/nodes"
     }, 
     {
-        title: "Лог",
+        title: "Log",
         icon: <StorageIcon />,
         link: "/log"
     }, 
     {
-        title: "Статистик",
+        title: "Statistic",
         icon: <ShowChartIcon />,
         link: "/statistic"
     }, 
     {
-        title: "Команд лог",
+        title: "Command log",
         icon: <TerminalIcon />,
         link: "/cmdlog"
     }, 
     {
-        title: "Хэрэглэгч",
+        title: "Users",
         icon: <SupervisorAccountIcon />,
         link: "/users"
     }, 

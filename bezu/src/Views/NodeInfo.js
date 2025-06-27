@@ -5,9 +5,10 @@ const NodeInfo = () => {
     const { id } = useParams();
     const [lastLog, setLastLog] = useState([]);
     const action = 'fetch_last_log';
+    const dummy = 'insert';
     async function fetchData() {
         try {
-            const responseLog = await fetch('http://localhost:3001/mid', {
+            const responseLog = await fetch('http://13.60.106.234:3001/mid', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action, id }),
@@ -17,15 +18,33 @@ const NodeInfo = () => {
             if (JSON.stringify(lastLog) !== JSON.stringify(dataLog || [])) {
                 setLastLog(dataLog || []);
             }
-            console.log(lastLog)
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    async function postData() {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
+        var now = date + ' '+ time;
+        var data = "(null, '#0006', '" + now + "', 'E0001'," + Math.floor(Math.random() * 100)+", "+Math.floor(Math.random() * 100)+", "+Math.floor(Math.random() * 100)+", "+Math.floor(Math.random() * 50)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", "+Math.floor(Math.random() * 10)+", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";
+        console.log(data)
+        try {
+            const responseNodes = await fetch('http://13.60.106.234:3001/mid', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({dummy, data}),
+            });
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
     useEffect(() => {
         fetchData();
-        const intervalId = setInterval(fetchData, 30000);
-        return () => clearInterval(intervalId);
+        postData();
+        const intervalId = setInterval(fetchData, 6000);
+        const interval = setInterval(postData, 6000);
+        return () => clearInterval(intervalId, interval);
     });
 
     function onoff(value) {

@@ -3,7 +3,7 @@ function PleaseLogin() {
         <div id='pls'>
             <p id='plslogin' onClick={() => {
                                 window.location.pathname = '/';
-                            }}>Нэвтэр л дэээ</p>
+                            }}>Please Login!</p>
         </div>
     )
 }

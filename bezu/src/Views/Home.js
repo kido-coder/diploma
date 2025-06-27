@@ -33,15 +33,15 @@ const Home = () => {
         break;
       case "delete":
         confirmAlert({
-          title: 'Баталгаажуулалт',
-          message: 'Та уг зангилааг устгахдаа итгэлтэй байна уу? Зангилааны логууд excel файлаар татагдана.',
+          title: 'Confirmation',
+          message: 'Are you sure to delete this node? Node logs will be download as  excel file.',
           buttons: [
             {
-              label: 'Тийм',
+              label: 'Yes',
               onClick: () => ConfirmDelete(clicked, 'node'),
             },
             {
-              label: 'Үгүй',
+              label: 'No',
               onClick: () => setState(false),
             },
           ],
@@ -49,15 +49,15 @@ const Home = () => {
         break;
       default:
         confirmAlert({
-          title: 'Баталгаажуулалт',
-          message: 'Та уг командыг илгээхдээ итгэлтэй байна уу?',
+          title: 'Confirmation',
+          message: 'Are you sure to send this command?',
           buttons: [
             {
-              label: 'Тийм',
+              label: 'Yes',
               onClick: () => InsertCmd(type, userID, clicked),
             },
             {
-              label: 'Үгүй',
+              label: 'No',
               onClick: () => setState(false),
             },
           ],
@@ -88,7 +88,7 @@ const Home = () => {
 
   async function fetchData() {
     try {
-      const responseNodes = await fetch('http://localhost:3001/mid', {
+      const responseNodes = await fetch('http://13.60.106.234:3001/mid', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action, userID }),
@@ -117,7 +117,7 @@ const Home = () => {
   } else {
     return (
       <div className="table-container">
-        <h3 style={{ marginLeft: '5%' }}>Онцлох зангилаа</h3>
+        <h3 style={{ marginLeft: '5%' }}>Starred Node</h3>
         <Modal show={state} handleClose={handleClose} nodeID={clicked}>
           <ul style={{ margin: '0', padding: '0' }}>
             {filteredModalData.map((val, key) => {
@@ -136,11 +136,11 @@ const Home = () => {
             <tr>
               <th></th>
               <th>ID</th>
-              <th>Нэр</th>
-              <th>Системийн төлөв</th>
-              <th>1-р хэлхээ</th>
-              <th>2-р хэлхээ</th>
-              <th>Тайлбар</th>
+              <th>Name</th>
+              <th>System state</th>
+              <th>1st circuit</th>
+              <th>2nd circuit</th>
+              <th>Info</th>
               <th></th>
             </tr>
           </thead>

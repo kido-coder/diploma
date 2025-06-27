@@ -22,7 +22,7 @@ const CmdLog = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3001/mid', {
+                const response = await fetch('http://13.60.106.234:3001/mid', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action, search }),
@@ -77,12 +77,12 @@ const CmdLog = () => {
     const handleClick = (event) => {
         setSearch(inp)
         if (userID.includes('EN') && search.length > 5) {
-            setMessage("Зангилааны ID алдаатай байна")
+            setMessage("Node ID is incorrect")
             setTimeout(() => {
                 setMessage('');
             }, 5000);
         }
-        fetch('http://localhost:3001/mid', {
+        fetch('http://13.60.106.234:3001/mid', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action, search }),
@@ -120,20 +120,20 @@ const CmdLog = () => {
                         style={{ margin: '0 0.5rem 0 0.5rem', width: '25%' }}
                         value={inp}
                         onChange={(e) => setInp(e.target.value.toUpperCase())} />
-                    <button onClick={() => handleClick()} style={{marginRight: '0.5rem'}}>Шүүх</button>
-                    <button onClick={() => ExportToExcel(log, search)} style={{marginRight: '0.5rem'}}>Excel татах</button>
-                    <button onClick={handlePrint}>Тайлан хэвлэх</button>
+                    <button onClick={() => handleClick()} style={{marginRight: '0.5rem'}}>Search</button>
+                    <button onClick={() => ExportToExcel(log, search)} style={{marginRight: '0.5rem'}}>Download Excel</button>
+                    <button onClick={handlePrint}>Print</button>
                 </div>
                 <div id='content-to-print'>
                     <table className='logTable'>
                         <thead>
                             <tr>
-                                <th>Огноо</th>
-                                <th>Зангилааны ID</th>
-                                <th>Зангилааны нэр</th>
-                                <th>Илгээх үеийн төлөв</th>
-                                <th>Илгээсэн ажилтан</th>
-                                <th>Илгээсэн команд</th>
+                                <th>Date</th>
+                                <th>Node ID</th>
+                                <th>Node Name</th>
+                                <th>Node state</th>
+                                <th>Sender</th>
+                                <th>Command</th>
                             </tr>
                         </thead>
                         {log.length > 0 && log.map((val, key) => {

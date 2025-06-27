@@ -20,7 +20,7 @@ const DictionaryForm = ({ show, handleClose, action }) => {
                 setMessage('');
             }, 5000);
         } else {
-            fetch('http://localhost:3001/operator', {
+            fetch('http://13.60.106.234:3001/operator', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action, info }),
@@ -47,21 +47,21 @@ const DictionaryForm = ({ show, handleClose, action }) => {
         <div className={showHideClassName}>
             <section className="modal-main">
                 <form onSubmit={handleSubmit} style={{ margin: '2rem' }}>
-                    <label >Лавлах ID</label><br />
-                    <input className='inp full' type="text" id="id" name="id" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
-                    <label >Лавлах утга</label><br />
-                    <input className='inp full' type="text" id="ner" name="ner" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
-                    <label >Лавлах тайлбар</label><br />
-                    <input className='inp full' type="text" id="tailbar" name="tailbar" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
-                    <label >Лавлах лвл</label><br />
-                    <input className='inp full' type="text" id="lvl" name="lvl" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <label >Record ID</label><br />
+                    <input className='inp full' type="text" id="id" name="id" onChange={handleChange} placeholder="Insert value here" /><br />
+                    <label >Record value</label><br />
+                    <input className='inp full' type="text" id="ner" name="ner" onChange={handleChange} placeholder="Insert value here" /><br />
+                    <label >Record info</label><br />
+                    <input className='inp full' type="text" id="tailbar" name="tailbar" onChange={handleChange} placeholder="Insert value here" /><br />
+                    <label >Record state</label><br />
+                    <input className='inp full' type="text" id="lvl" name="lvl" onChange={handleChange} placeholder="Insert value here" /><br />
                     {message && <div className="alert">{message}</div>}
                     <div style={{ display: 'flex' }}>
                         <button type="submit" className='close'>
-                            Хадгалах
+                            Save
                         </button>
                         <button type="button" className='close' onClick={handleClose}>
-                            Хаах
+                            Close
                         </button>
                     </div>
                 </form>

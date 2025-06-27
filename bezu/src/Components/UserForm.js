@@ -39,7 +39,7 @@ const UserForm = ({ show, handleClose, userID }) => {
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    setMessage('Aлдаа гарлаа. Та дахин оролдоно уу?.');
+                    setMessage('Error! Try again later?.');
                 });
         }
     };
@@ -49,22 +49,22 @@ const UserForm = ({ show, handleClose, userID }) => {
             <section className="modal-main">
                 <form onSubmit={handleSubmit} style={{ margin: '2rem' }}>
                     <label >Хэрэглэгчийн ID</label><br />
-                    <input className='inp full' type="text" id="ajlitan_id" name="ajiltan_id" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <input className='inp full' type="text" id="ajlitan_id" name="ajiltan_id" onChange={handleChange} placeholder="Insert value here" /><br />
                     <label >Хэрэглэгчийн овог</label><br />
-                    <input className='inp full' type="text" id="ajiltan_ovog" name="ajiltan_ovog" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <input className='inp full' type="text" id="ajiltan_ovog" name="ajiltan_ovog" onChange={handleChange} placeholder="Insert value here" /><br />
                     <label >Хэрэглэгчийн нэр</label><br />
-                    <input className='inp full' type="text" id="ajiltan_ner" name="ajiltan_ner" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <input className='inp full' type="text" id="ajiltan_ner" name="ajiltan_ner" onChange={handleChange} placeholder="Insert value here" /><br />
                     <label >Хэрэглэгчийн утас</label><br />
-                    <input className='inp full' type="text" id="ajiltan_utas" name="ajiltan_utas" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <input className='inp full' type="text" id="ajiltan_utas" name="ajiltan_utas" onChange={handleChange} placeholder="Insert value here" /><br />
                     <label >Хэрэглэгчийн цахим шуудан</label><br />
-                    <input className='inp full' type="email" id="ajiltan_email" name="ajiltan_email" onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <input className='inp full' type="email" id="ajiltan_email" name="ajiltan_email" onChange={handleChange} placeholder="Insert value here" /><br />
                     {message && <div className="alert">{message}</div>}
                     <div style={{ display: 'flex' }}>
                         <button type="submit" className='close'>
-                            Хадгалах
+                            Save
                         </button>
                         <button type="button" className='close' onClick={handleClose}>
-                            Хаах
+                            Close
                         </button>
                     </div>
                 </form>

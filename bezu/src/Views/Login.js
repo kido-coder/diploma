@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3001/login', {
+    fetch('http://13.60.106.234:3001/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -35,7 +35,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        setMessage('Нэтрэхэд алдаа гарлаа. Та дахин оролдоно уу?.');
+        setMessage('Error! Please try again later?');
       });
   };
 
@@ -43,13 +43,13 @@ const Login = () => {
       <div className="background">
         <div className="loginform">
           <img className="logo" src="/Images/logo.png" alt="Logo" />
-          <p style={{margin:'2.5rem'}}>Хяналтын систем</p>
+          <p style={{margin:'2.5rem'}}>Monitoring System</p>
           <form onSubmit={handleSubmit} id="login_form">
             <input
               className="inp"
               type="text"
               name="username"
-              placeholder="Ажилтны код"
+              placeholder="User ID"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -57,7 +57,7 @@ const Login = () => {
               className="inp"
               type="password"
               name="password"
-              placeholder="Нууц үг"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -66,10 +66,10 @@ const Login = () => {
             <br />
             {message && <div className="alert">{message}</div>}
             <button type="submit" id="login_button" className="button login">
-              Нэвтрэх
+              Login
             </button>
             <button type="button" id="forget_button" className="button forget">
-              Нууц үгээ мартсан
+              Forget password?
             </button>
           </form>
         </div>

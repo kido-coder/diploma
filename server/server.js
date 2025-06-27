@@ -11,10 +11,10 @@ app.use(cors());
 app.use(cookieParser('b13n3d1pl0m11gh11jduuschaadun7ana'));
 
 const database = mysql.createConnection({
-    host: "sql210.infinityfree.com",
-    user: "if0_37066902",
-    password: "surguulishataasai",
-    database: "if0_37066902_contor"
+    host: "127.0.0.1",
+    user: "root",
+    password: "password",
+    database: "contor"
 })
 
 app.post('/admin', (req, res) => {
@@ -134,6 +134,17 @@ app.post('/profile', (req, res) => {
 })
 app.post("/mid", function (req, res) {
     var action = req.body.action;
+    var dummy = req.body.dummy;
+    if (dummy == 'insert') {
+        var data = req.body.data;
+        var query = `INSERT INTO node_log VALUES ${data};`
+        console.log(query)
+        database.query(query, function (error, data) {
+            res.json({
+                data: data
+            });
+        });
+    }
     // home
     if (action == 'fav_node') {
         var id = req.body.userID;

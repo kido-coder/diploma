@@ -49,15 +49,15 @@ const Nodes = () => {
                 break;
             case "delete":
                 confirmAlert({
-                    title: 'Баталгаажуулалт',
-                    message: 'Та уг зангилааг устгахдаа итгэлтэй байна уу? Зангилааны логууд excel файлаар татагдана.',
+                    title: 'Confirmation',
+                    message: 'Are you sure to delete this node? Node logs will be download as  excel file.',
                     buttons: [
                         {
-                            label: 'Тийм',
+                            label: 'Yes',
                             onClick: () => ConfirmDelete(clicked, 'node'),
                         },
                         {
-                            label: 'Үгүй',
+                            label: 'No',
                             onClick: () => setState(false),
                         },
                     ],
@@ -65,15 +65,15 @@ const Nodes = () => {
                 break;
             default:
                 confirmAlert({
-                    title: 'Баталгаажуулалт',
-                    message: 'Та уг командыг илгээхдээ итгэлтэй байна уу?',
+                    title: 'Confirmation',
+                    message: 'Are you sure to send this command?',
                     buttons: [
                         {
-                            label: 'Тийм',
+                            label: 'Yes',
                             onClick: () => InsertCmd(type, userID, clicked),
                         },
                         {
-                            label: 'Үгүй',
+                            label: 'No',
                             onClick: () => setState(false),
                         },
                     ],
@@ -103,26 +103,27 @@ const Nodes = () => {
         }
     }, []);
 
-    async function fetchData () {
+    async function fetchData() {
         try {
-          const responseNodes = await fetch('http://localhost:3001/mid', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action, userID }),
-          });
+            const responseNodes = await fetch('http://13.60.106.234:3001/mid', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action, userID }),
+            });
 
-          const dataNodes = await responseNodes.json();
-          if (JSON.stringify(node) !== JSON.stringify(dataNodes.data || [])) {
-            setNode(dataNodes.data || []);
-          }
+            const dataNodes = await responseNodes.json();
+            if (JSON.stringify(node) !== JSON.stringify(dataNodes.data || [])) {
+                setNode(dataNodes.data || []);
+            }
         } catch (error) {
-          console.error('Error fetching data:', error);
+            console.error('Error fetching data:', error);
         }
-      };
+    };
     useEffect(() => {
         fetchData();
+      
         console.log(node)
-        const intervalId = setInterval(fetchData, 5000);
+        const intervalId = setInterval(fetchData, 60000);
         return () => clearInterval(intervalId);
     });
 
@@ -139,7 +140,7 @@ const Nodes = () => {
         return (
             <div className="table-container">
                 {userID.includes('DC') &&
-                    <div style={{ textAlign: 'end', marginRight: '2%' }}><button onClick={() => addNode()} className="button add">Зангилаа нэмэх</button></div>
+                    <div style={{ textAlign: 'end', marginRight: '2%' }}><button onClick={() => addNode()} className="button add">Add Node</button></div>
                 }
 
                 <Modal show={state} handleClose={handleClose} nodeID={clicked}>
@@ -161,11 +162,11 @@ const Nodes = () => {
                         <tr>
                             <th></th>
                             <th>ID</th>
-                            <th>Нэр</th>
-                            <th>Системийн төлөв</th>
-                            <th>1-р хэлхээ</th>
-                            <th>2-р хэлхээ</th>
-                            <th>Тайлбар</th>
+                            <th>Name</th>
+                            <th>System state</th>
+                            <th>1st circuit</th>
+                            <th>2nd circuit</th>
+                            <th>Info</th>
                             <th></th>
                         </tr>
                     </thead>

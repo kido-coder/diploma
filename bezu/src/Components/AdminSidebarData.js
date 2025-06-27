@@ -5,17 +5,17 @@ import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 
 export const AdminSidebarData = [
     {
-        title: "Нүүр хуудас",
+        title: "Home",
         icon: <HomeIcon />,
         link: "/dashboard"
     },
     {
-        title: "Хэрэглэгч",
+        title: "Users",
         icon: <SupervisorAccountIcon />,
         link: "/users"
     },
     {
-        title: "Лавлахууд",
+        title: "Database",
         icon: <CollectionsBookmarkIcon />,
         link: "/dictionary"
     },

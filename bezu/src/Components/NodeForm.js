@@ -12,7 +12,7 @@ const NodeForm = ({ show, handleClose, type, nodeID }) => {
     var action = 'fetch_single_node';
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:3001/operator', {
+            const response = await fetch('http://13.60.106.234:3001/operator', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action, nodeID }),
@@ -37,7 +37,7 @@ const NodeForm = ({ show, handleClose, type, nodeID }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (info.node_id.length < 5 || info.node_name.length === 0 || info.node_address.length === 0 || info.node_id[0] !== '#') {
-            setMessage("Оруулсан өгөгдөл дутуу/алдаатай байна");
+            setMessage("Data missing/incorrect");
             setTimeout(() => {
                 setMessage('');
             }, 5000);
@@ -47,7 +47,7 @@ const NodeForm = ({ show, handleClose, type, nodeID }) => {
                 action = "add_node"
             else
                 action = "update_node"
-            fetch('http://localhost:3001/operator', {
+            fetch('http://13.60.106.234:3001/operator', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action, info }),
@@ -61,7 +61,7 @@ const NodeForm = ({ show, handleClose, type, nodeID }) => {
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    setMessage('Aлдаа гарлаа. Та дахин оролдоно уу?.');
+                    setMessage('Oops, try again?.');
                 });
             setInfo({ node_id: "", node_name: "", node_address: "" })
         }
@@ -71,19 +71,19 @@ const NodeForm = ({ show, handleClose, type, nodeID }) => {
         <div className={showHideClassName}>
             <section className="modal-main">
                 <form onSubmit={handleSubmit} style={{ margin: '2rem' }}>
-                    <label >Зангилааны ID</label><br />
-                    <input className="inp full" type="text" id="node_id" name="node_id" value={info && info.node_id} onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
-                    <label >Зангилааны нэр</label><br />
-                    <input className="inp full" type="text" id="node_name" name="node_name" value={info && info.node_name} onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
-                    <label >Зангилааны хаяг</label><br />
-                    <input className="inp full" type="text" id="node_address" name="node_address" value={info && info.node_address} onChange={handleChange} placeholder="Утгаа оруулна уу" /><br />
+                    <label >Node ID</label><br />
+                    <input className="inp full" type="text" id="node_id" name="node_id" value={info && info.node_id} onChange={handleChange} placeholder="Insert value here" /><br />
+                    <label >Node name</label><br />
+                    <input className="inp full" type="text" id="node_name" name="node_name" value={info && info.node_name} onChange={handleChange} placeholder="Insert value here" /><br />
+                    <label >Node address</label><br />
+                    <input className="inp full" type="text" id="node_address" name="node_address" value={info && info.node_address} onChange={handleChange} placeholder="Insert value here" /><br />
                     {message && <div className="alert">{message}</div>}
                     <div style={{ display: 'flex' }}>
                         <button type="submit" className='close'>
-                            Хадгалах
+                            Save
                         </button>
                         <button type="button" className='close' onClick={handleClose}>
-                            Хаах
+                            Close
                         </button>
                     </div>
                 </form>

@@ -1,6 +1,6 @@
 export async function Get (action, setData) {
     try {
-        const res = await fetch('http://localhost:3001/admin', {
+        const res = await fetch('http://13.60.106.234:3001/admin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action }),

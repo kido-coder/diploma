@@ -51,7 +51,7 @@ function Sidebar() {
                     )
                 })}
             </ul>
-            <button onClick={handleLogout} className='logout'>Гарах</button>
+            <button onClick={handleLogout} className='logout'>Logout</button>
         </div>
     )
 }

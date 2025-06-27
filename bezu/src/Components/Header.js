@@ -6,7 +6,7 @@ function Header() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const responseNodes = await fetch('http://localhost:3001/header', {
+                const responseNodes = await fetch('http://13.60.106.234:3001/header', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                 });
@@ -33,7 +33,7 @@ function Header() {
             <div id='info'>
                 {!localStorage.getItem("user").includes('AD') &&
                     <div id="headerNode">
-                        <a href='/nodes'>Нийт зангилаа</a>
+                        <a href='/nodes'>All nodes</a>
                         {data.length > 0 && (
                             <p>{data[0].num}</p>
                         )}
@@ -41,7 +41,7 @@ function Header() {
                 }
                 {!localStorage.getItem("user").includes('EN')  &&
                     <div id="headerUser">
-                        <a href='/users'>Нийт хэрэглэгч</a>
+                        <a href='/users'>All users</a>
                         {data.length > 1 && (
                             <p>{data[1].num}</p>
                         )}

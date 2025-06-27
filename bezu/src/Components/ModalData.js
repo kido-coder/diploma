@@ -1,26 +1,26 @@
 export const ModalData = [
     {
-        title: "1-р хэлхээ эргэлт унтраах",
+        title: "Turn off circuit 1",
         cmd: "CW01"
     }, 
     {
-        title: "2-р хэлхээ эргэлт унтраах",
+        title: "Turn off circuit 2",
         cmd: "CH01"
     }, 
     {
-        title: "2-р хэлхээ нэмэлт ус унтраах",
+        title: "Circuit 2 additional water shut-off",
         cmd: "CH02"
     }, 
     {
-        title: "Аваарын горим",
+        title: "Emergency mode",
         cmd: "CA01"
     }, 
     {
-        title: "Засах",
+        title: "Edit",
         cmd: "edit"
     }, 
     {
-        title: "Устгах",
+        title: "Delete",
         cmd: "delete"
     },
 ]

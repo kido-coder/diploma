@@ -20,7 +20,7 @@ const Log = () => {
 
     const fetchData = async () => {
         try {
-            const responseLog = await fetch('http://localhost:3001/mid', {
+            const responseLog = await fetch('http://13.60.106.234:3001/mid', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action, node, start, end }),
@@ -126,15 +126,15 @@ const Log = () => {
                         <button onClick={handleClick}>Шүүх</button>
                     </div>
                     <div style={{ display: 'flex', textAlign: 'center' }}>
-                        <button onClick={() => ExportToExcel(log, node + start + end)} style={{marginRight: '0.5rem'}}>Excel татах</button>
-                        <button onClick={handlePrint}>Тайлан хэвлэх</button>
+                        <button onClick={() => ExportToExcel(log, node + start + end)} style={{marginRight: '0.5rem'}}>Download Excel</button>
+                        <button onClick={handlePrint}>Print</button>
                     </div>
                 </div>
                 <div id='content-to-print'>
                     <table className='logTable'>
                         <thead>
                             <tr>
-                                <th>Огноо</th>
+                                <th>Date</th>
                                 <th>T11</th>
                                 <th>T12</th>
                                 <th>T21</th>
